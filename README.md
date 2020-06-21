@@ -93,7 +93,7 @@ print(decode)
 
 **The keys of this dictionary are morse code and the values are english characters.**
 
-To translate the poem, we simply have to feed each encoded letter into the dictionary as a key, and we will receive its decoded value.
+To translate the poem, we simply have to feed each encoded letter into the dictionary as a key, and we will receive their decoded values.
 
 *Important information:*
 
