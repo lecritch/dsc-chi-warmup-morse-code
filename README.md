@@ -72,25 +72,55 @@ Using the ```decode``` dictionary, please build a function that can translate th
 4. Split a given word using ```' '``` as a seperator.
 5. Loop over each letter in a given word.
 6. Feed the letter into the ```decode``` dictionary as a key.
-7. Append each decoded letter to a string
-8. Append each decoded word to a string with spaces between each word
-9. No spaces should be present at the beginning or the end of a decoded sentence. 
+7. Append each decoded word to a string with spaces between each word
+8. No spaces should be present at the beginning or the end of a decoded sentence. 
 
 
 ```python
 def decode_morse(morse_code):
+    '''
+    Receives a string that has been encoded with morse code
+        "/" is used to seperate each word
+        " " is used to seperate each letter
+    Using a global ```decode``` dictionary,
+    the morse is mapped to English letters punctuation and numbers.'''
+    # List for collecting characters that could
+    # not be tranlated
+    errors = []
+    # Create an empty string to append each word to
     decoded = ''
+    # Create a list of encoded words
     words = morse_code.split('/')
+    # Loop over each word
     for word in words:
+        # Create a list of letters for a given word
         letters = word.split()
+        # Number of letters to be used
+        # for iterating over index and 
+        # checking if we are on the final iteration
         length = len(letters)
+        # Loop over index
         for idx in range(length):
             letter = letters[idx]
+            # Ensure the letter
+            # can be translated
             if letter in decode.keys():
+                # Add decoded letter to decoded string
                 decoded += decode[letter]
+            else:
+                # Append characters missing from our
+                # translation data to an errors list
+                errors.append(letter)
+            # If we are tranlsating the final letter in a word,
+            # We add the decoded letter followed by a space.
             if idx == length - 1:
                 decoded += ' '
+    # The .strip method removes erroneous errors at the beginning
+    # and end of a string.
     decoded = decoded.strip()
+    # If there are errors, we print them out. 
+    if len(errors) > 0:
+        print('The following characters could not be translated:',errors)
     return decoded       
 ```
 
