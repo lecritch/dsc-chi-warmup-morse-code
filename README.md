@@ -62,9 +62,8 @@ Using the ```decode``` dictionary, please build a function that can translate th
 4. Split a given word using ```' '``` as a seperator.
 5. Loop over each letter in a given word.
 6. Feed the letter into the ```decode``` dictionary as a key.
-7. Append each decoded letter to a string
-8. Append each decoded word to a string with spaces between each word
-9. No spaces should be present at the beginning or the end of a decoded sentence. 
+7. Append each decoded word to a string with spaces between each word
+8. No spaces should be present at the beginning or the end of a decoded sentence. 
 
 
 ```python
